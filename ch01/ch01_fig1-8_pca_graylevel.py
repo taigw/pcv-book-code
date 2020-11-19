@@ -13,7 +13,7 @@ imlist = imtools.get_imlist('../data/fontimages/a_thumbs')  # fontimages.zip is 
 im = array(Image.open(imlist[0]))  # open one image to get the size
 m, n = im.shape[:2]  # get the size of the images
 imnbr = len(imlist)  # get the number of images
-print "The number of images is %d" % imnbr
+print("The number of images is %d" % imnbr)
 
 # Create matrix to store all flattened images
 immatrix = array([array(Image.open(imname)).flatten() for imname in imlist], 'f')
@@ -22,7 +22,7 @@ immatrix = array([array(Image.open(imname)).flatten() for imname in imlist], 'f'
 V, S, immean = pca.pca(immatrix)
 
 # 保存均值和主成分
-f = open('../data/fontimages/font_pca_modes.pkl', 'wb')
+f = open('../data/font_pca_modes.pkl', 'wb')
 pickle.dump(immean,f)
 pickle.dump(V,f)
 f.close()

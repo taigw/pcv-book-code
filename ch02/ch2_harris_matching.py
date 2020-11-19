@@ -10,16 +10,16 @@ This is the Harris point matching example in Figure 2-2.
 """
 
 # Figure 2-2上面的图
-#im1 = array(Image.open("../data/crans_1_small.jpg").convert("L"))
-#im2 = array(Image.open("../data/crans_2_small.jpg").convert("L"))
+im1 = array(Image.open("../data/crans_1_small.jpg").convert("L"))
+im2 = array(Image.open("../data/crans_2_small.jpg").convert("L"))
 
 # Figure 2-2下面的图
-im1 = array(Image.open("../data/sf_view1.jpg").convert("L"))
-im2 = array(Image.open("../data/sf_view2.jpg").convert("L"))
+# im1 = array(Image.open("../data/sf_view1.jpg").convert("L"))
+# im2 = array(Image.open("../data/sf_view2.jpg").convert("L"))
 
 # resize to make matching faster
-im1 = imresize(im1, (im1.shape[1]/2, im1.shape[0]/2))
-im2 = imresize(im2, (im2.shape[1]/2, im2.shape[0]/2))
+im1 = imresize(im1, (int(im1.shape[1]/2), int(im1.shape[0]/2)))
+im2 = imresize(im2, (int(im2.shape[1]/2), int(im2.shape[0]/2)))
 
 wid = 5
 harrisim = harris.compute_harris_response(im1, 5)
@@ -30,7 +30,7 @@ harrisim = harris.compute_harris_response(im2, 5)
 filtered_coords2 = harris.get_harris_points(harrisim, wid+1)
 d2 = harris.get_descriptors(im2, filtered_coords2, wid)
 
-print 'starting matching'
+print('starting matching')
 matches = harris.match_twosided(d1, d2)
 
 figure()

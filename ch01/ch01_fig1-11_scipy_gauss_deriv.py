@@ -4,10 +4,6 @@ from pylab import *
 from scipy.ndimage import filters
 import numpy
 
-# 添加中文字体支持
-#from matplotlib.font_manager import FontProperties
-#font = FontProperties(fname=r"c:\windows\fonts\SimSun.ttc", size=14)
-
 def imx(im, sigma):
     imgx = zeros(im.shape)
     filters.gaussian_filter(im, sigma, (0, 1), imgx)
@@ -22,7 +18,6 @@ def imy(im, sigma):
 
 def mag(im, sigma):
     # there's also gaussian_gradient_magnitude()
-    #mag = numpy.sqrt(imgx**2 + imgy**2)
     imgmag = 255 - numpy.sqrt(imgx ** 2 + imgy ** 2)
     return imgmag
 

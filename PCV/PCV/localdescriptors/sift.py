@@ -9,14 +9,14 @@ def process_image(imagename,resultname,params="--edge-thresh 10 --peak-thresh 5"
     path = os.path.abspath(os.path.join(os.path.dirname("__file__"),os.path.pardir))
     path = path+"\\utils\\win32vlfeat\\sift.exe "
     if imagename[-3:] != 'pgm':
-	    #create a pgm file
-		 im = Image.open(imagename).convert('L')
-		 im.save('tmp.pgm')
-		 imagename = 'tmp.pgm'
+		#create a pgm file
+        im = Image.open(imagename).convert('L')
+        im.save('tmp.pgm')
+        imagename = 'tmp.pgm'
     cmmd = str(path+imagename+" --output="+resultname+
 				" "+params)
     os.system(cmmd)
-    print 'processed', imagename, 'to', resultname
+    print('processed', imagename, 'to', resultname)
 
 
 def read_features_from_file(filename):

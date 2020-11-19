@@ -4,16 +4,16 @@ from numpy import *
 from pylab import *
 
 im = array(Image.open('../data/empire.jpg').convert('L'))
-print int(im.min()), int(im.max())
+print(int(im.min()), int(im.max()))
 
 im2 = 255 - im  # invert image
-print int(im2.min()), int(im2.max())
+print(int(im2.min()), int(im2.max()))
 
 im3 = (100.0/255) * im + 100  # clamp to interval 100...200
-print int(im3.min()), int(im3.max())
+print(int(im3.min()), int(im3.max()))
 
 im4 = 255.0 * (im/255.0)**2  # squared
-print int(im4.min()), int(im4.max())
+print(int(im4.min()), int(im4.max()))
 
 figure()
 gray()

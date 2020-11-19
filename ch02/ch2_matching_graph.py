@@ -6,7 +6,10 @@ from PCV.tools import imtools
 import pydot
 
 """ This is the example graph illustration of matching images from Figure 2-10.
-To download the images, see ch2_download_panoramio.py."""
+To download the images, see ch2_download_panoramio.py.
+
+注意：本程序还存在一些问题
+"""
 
 #download_path = "panoimages"  # set this to the path where you downloaded the panoramio images
 #path = "/FULLPATH/panoimages/"  # path to save thumbnails (pydot needs the full system path)
